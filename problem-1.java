@@ -4,31 +4,41 @@ public class Problem1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        double a, b;
-        String op;
+        System.out.print("Enter first number (a): ");
+        double a = sc.nextDouble();
 
-        System.out.print("Enter number a: ");
-        a = sc.nextDouble();
-
-        System.out.print("Enter number b: ");
-        b = sc.nextDouble();
+        System.out.print("Enter second number (b): ");
+        double b = sc.nextDouble();
 
         System.out.print("Enter operation (add, subtract, multiply, divide): ");
-        op = sc.next();
+        String op = sc.next();
 
-        if (op.equals("add")) {
-            System.out.println("Result: " + (a + b));
-        } else if (op.equals("subtract")) {
-            System.out.println("Result: " + (a - b));
-        } else if (op.equals("multiply")) {
-            System.out.println("Result: " + (a * b));
-        } else if (op.equals("divide")) {
-            if (b != 0)
-                System.out.println("Result: " + (a / b));
-            else
-                System.out.println("Cannot divide by zero");
-        } else {
-            System.out.println("Invalid operation");
+        double result = 0;
+
+        switch (op.toLowerCase()) {
+            case "add":
+                result = a + b;
+                System.out.println("Addition = " + result);
+                break;
+            case "subtract":
+                result = a - b;
+                System.out.println("Subtraction = " + result);
+                break;
+            case "multiply":
+                result = a * b;
+                System.out.println("Multiplication = " + result);
+                break;
+            case "divide":
+                if (b != 0) {
+                    result = a / b;
+                    System.out.println("Division = " + result);
+                } else {
+                    System.out.println("Cannot divide by zero");
+                }
+                break;
+            default:
+                System.out.println("Invalid operation");
         }
     }
 }
+
